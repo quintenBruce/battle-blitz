@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public bool isMoving;
     private Vector2 input;
-    public float moveSpeed = 1f; 
+    public float moveSpeed = 1f;
+    public LayerMask solidObjectsLayer;
 
     // Update is called once per frame
     private void Update()
@@ -22,11 +23,22 @@ public class PlayerController : MonoBehaviour
                 Vector3 inputDirection = new Vector3(horizontalInput, verticalInput, 0f).normalized;
                 Vector3 targetPosition = transform.position + inputDirection;
 
-                StartCoroutine(Move(targetPosition));
+                if (isWalkable(targetPosition))
+                {
+                    StartCoroutine(Move(targetPosition));
+                }
             }
         }
     }
 
+    private bool isWalkable(Vector3 targetPosition)
+    {
+        if (Physics2D.OverlapCircle(targetPosition, 0.2f, solidObjectsLayer) != null)
+        {
+            return false;
+        }
+        return true;
+    }
     private IEnumerator Move(Vector3 targetPos)
     {
         isMoving = true;
