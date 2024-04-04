@@ -368,7 +368,7 @@ Transform:
   m_GameObject: {fileID: 159631501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.11, y: -6.79, z: 0}
+  m_LocalPosition: {x: -12.29, y: 0.85, z: 0}
   m_LocalScale: {x: 2.2134862, y: 2.168431, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782d9bd411f7c214d898eb14a28bfe23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 6
   rb: {fileID: 159631507}
 --- !u!61 &159631506
 BoxCollider2D:
@@ -420,7 +420,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005506739, y: 0}
+  m_Offset: {x: 0.03413903, y: -0.37072784}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -431,7 +431,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6985135, y: 0.84375}
+  m_Size: {x: 0.33985227, y: 0.102294326}
   m_EdgeRadius: 0
 --- !u!50 &159631507
 Rigidbody2D:
@@ -459,7 +459,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &265474790
 GameObject:
   m_ObjectHideFlags: 0
@@ -5290,8 +5290,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -938358031
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
