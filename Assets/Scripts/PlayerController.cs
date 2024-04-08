@@ -1,13 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     Vector2 movement;
     public Animator animator;
+    public GameObject[] spawnPoints;
+    private static int lastSpawnIndex = -1;
+
+
+    public void Start()
+    {
+    }
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+
+        // Check if spawnPoints array is not empty
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogWarning("Spawn points are not assigned.");
+            return;
+        }
+
+        // Choose the next spawn point index
+        int nextSpawnIndex = (lastSpawnIndex + 1) % spawnPoints.Length;
+        lastSpawnIndex = nextSpawnIndex;
+
+        // Get the transform of the chosen spawn point
+        Transform chosenSpawnPoint = spawnPoints[nextSpawnIndex].transform;
+
+        // Move the spawned object to the chosen spawn point position
+        transform.position = chosenSpawnPoint.position;
+        transform.rotation = chosenSpawnPoint.rotation;
+    }
+
 
     // Called once per frame
     private void Update()
