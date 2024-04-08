@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 1250962526304427511}
   - component: {fileID: 2428917111282571619}
   - component: {fileID: 3150909136817148423}
-  - component: {fileID: -3631499181915699748}
+  - component: {fileID: 5079701589430649054}
+  - component: {fileID: 7793367639250239258}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -125,7 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rb: {fileID: 2428917111282571619}
-  animator: {fileID: 0}
   spawnPoints:
   - {fileID: 8272047976555876733, guid: 5d22a5b07a7a3a1419597418f4d60e62, type: 3}
   - {fileID: 6297318483105864363, guid: 95955d5549be0674d840959ee5f916bf, type: 3}
@@ -220,9 +220,9 @@ MonoBehaviour:
   SyncRotAngleX: 1
   SyncRotAngleY: 1
   SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
@@ -232,7 +232,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!95 &-3631499181915699748
+--- !u!95 &5079701589430649054
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -253,3 +253,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7793367639250239258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6437675056640634524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7945375a64adf7d4ab784b80911cfcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 5079701589430649054}

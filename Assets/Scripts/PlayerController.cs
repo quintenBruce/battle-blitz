@@ -8,13 +8,20 @@ public class PlayerController : NetworkBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     Vector2 movement;
-    public Animator animator;
+    private Animator animator;
     public GameObject[] spawnPoints;
     private static int lastSpawnIndex = -1;
 
 
     public void Start()
     {
+        animator = GetComponent<Animator>();
+
+        if (animator == null)
+        {
+            Debug.LogError("Animator component not found.");
+
+        }
     }
     public override void OnNetworkSpawn()
     {
@@ -43,6 +50,7 @@ public class PlayerController : NetworkBehaviour
     // Called once per frame
     private void Update()
     {
+        if (!IsOwner) { return; }
         // Get the input for horizontal and vertical movement
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
