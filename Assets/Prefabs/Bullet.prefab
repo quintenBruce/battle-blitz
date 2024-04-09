@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4733182851553066882}
   - component: {fileID: 3421760647503152400}
   - component: {fileID: 7566410068499781700}
+  - component: {fileID: -8284573226159394230}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d788540d4921e49bb9f9e06c7b27c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3
+  force: 10
 --- !u!50 &7566410068499781700
 Rigidbody2D:
   serializedVersion: 4
@@ -126,3 +127,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-8284573226159394230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321424379431500834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1076503235
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

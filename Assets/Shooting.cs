@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -38,7 +39,10 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire)
         {
             canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity) ;
+            var instance = Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            var instanceNetworkObject = instance.GetComponent<NetworkObject>();
+            instanceNetworkObject.Spawn();
+
 
         }
     }
