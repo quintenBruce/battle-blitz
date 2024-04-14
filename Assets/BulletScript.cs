@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -14,7 +15,7 @@ public class BulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
         //mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
@@ -26,7 +27,16 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 viewPos = mainCam.WorldToViewportPoint(transform.position);
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        {
+            
+        }
+        else
+        {
+            NetworkManager.Destroy(gameObject, 1f);
+        }
+
     }
 
     public void upD()
@@ -37,4 +47,8 @@ public class BulletScript : MonoBehaviour
         Vector3 direction = mousePos - transform.position;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
     }
+
+    private void OnBecameInvisible()
+    {
+            }
 }
