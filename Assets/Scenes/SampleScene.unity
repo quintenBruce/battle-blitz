@@ -7901,6 +7901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 593390991}
     m_Modifications:
+    - target: {fileID: -2843136555056377442, guid: d1560ea76e9d9834c98a8d31e0d73462, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5965138216183125650, guid: d1560ea76e9d9834c98a8d31e0d73462, type: 3}
       propertyPath: m_Name
       value: Broken Pillar

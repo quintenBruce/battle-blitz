@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletScript : NetworkBehaviour
 {
     public Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
     public float force;
+    public GameObject bulletPrefab;
 
 
 
@@ -30,7 +32,7 @@ public class BulletScript : MonoBehaviour
         Vector3 viewPos = mainCam.WorldToViewportPoint(transform.position);
         if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
         {
-            
+
         }
         else
         {
@@ -48,7 +50,16 @@ public class BulletScript : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
     }
 
-    private void OnBecameInvisible()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (IsOwner)
+        {
+
+            Object x = collision.gameObject;
+            if (x != bulletPrefab)
+            {
+                GameObject.Destroy(gameObject);
             }
+        }
+    }
 }
