@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,14 +30,18 @@ public class BulletScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 viewPos = mainCam.WorldToViewportPoint(transform.position);
-        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        if (IsOwner)
         {
 
-        }
-        else
-        {
-            NetworkManager.Destroy(gameObject, 1f);
+            Vector3 viewPos = mainCam.WorldToViewportPoint(transform.position);
+            if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+            {
+
+            }
+            else
+            {
+                NetworkManager.Destroy(gameObject, 1f);
+            }
         }
 
     }

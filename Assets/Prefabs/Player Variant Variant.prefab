@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 8963190550654606501}
     - target: {fileID: 5701153137792307130, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
       propertyPath: timeBetweenFiring
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7822775063148654333, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
       propertyPath: m_LocalPosition.x
