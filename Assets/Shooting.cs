@@ -73,7 +73,7 @@ public class Shooting : NetworkBehaviour
                 canFire = false;
                 mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
                 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-                SpawnBulletServerRPC(bulletTransform.position, Quaternion.identity, mousePos);
+                SpawnBulletServerRPC(bulletTransform.position, Quaternion.identity, transform.parent.transform.position);
 
 
             }

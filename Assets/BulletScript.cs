@@ -51,7 +51,7 @@ public class BulletScript : NetworkBehaviour
         rb = GetComponent<Rigidbody2D>();
         //mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 direction = mousePos - transform.position;
+        Vector3 direction = transform.position - mousePos;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
     }
 
