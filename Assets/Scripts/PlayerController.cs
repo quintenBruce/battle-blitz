@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -11,15 +13,18 @@ public class PlayerController : NetworkBehaviour
     private Animator animator;
     public GameObject[] spawnPoints;
     private static int lastSpawnIndex = -1;
+    public Image healthBar;
+    private float healthAmount = 100f;
 
 
     public void Start()
     {
         animator = GetComponent<Animator>();
-
-        if (animator == null)
+        //get canvas and search for healthbar Image
+        Canvas c = gameObject.GetComponentInChildren<Canvas>();
+        foreach (Image im in c.GetComponentsInChildren<Image>())
         {
-            Debug.LogError("Animator component not found.");
+            if (im.CompareTag("HealthBar")) healthBar = im;
 
         }
     }
@@ -69,6 +74,21 @@ public class PlayerController : NetworkBehaviour
     {
         // Move the Rigidbody using the normalized movement vector
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Bullet(Clone)" || collision.gameObject.name.Equals("Bullet(Clone)"))
+        {
+            takeDamage(10);
+        }
+    }
+
+    private void takeDamage(int damage)
+    {
+        healthAmount -= damage;
+        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
+        healthBar.fillAmount = healthAmount / 100f;
     }
 
 

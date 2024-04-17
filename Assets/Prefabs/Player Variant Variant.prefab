@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6145845998869706979}
   m_Layer: 5
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
       value: 1976718907
       objectReference: {fileID: 0}
+    - target: {fileID: 5425355971414096811, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5321424379431500834, guid: 6e19ca302c968ea44a66c5c5294c892c, type: 3}
     - target: {fileID: 5701153137792307130, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
       propertyPath: bullet
       value: 
