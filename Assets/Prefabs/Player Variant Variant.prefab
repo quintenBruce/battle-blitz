@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4036441514209634305, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3825536481
+      value: 2884302760
       objectReference: {fileID: 0}
     - target: {fileID: 4036441514209634305, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -416,6 +416,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3483030568071095538}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 823987799368394961, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920567740920788179}
     - targetCorrespondingSourceObject: {fileID: 3925410817336764466, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4125013256831391178}
@@ -442,6 +445,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7a4da02ec8f2746abf06d3c059dc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8716777423952250133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 823987799368394961, guid: 2562a16b1277a8645a2be57669a19797, type: 3}
+  m_PrefabInstance: {fileID: 8329216657579470276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &920567740920788179
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716777423952250133}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.4375, y: 0}
+  - {x: -0.42781386, y: 0.11456833}
+  - {x: -0.39087045, y: 0.18461101}
+  - {x: -0.24769661, y: 0.20782918}
+  - {x: -0.27120277, y: 0.27959102}
+  - {x: -0.2739192, y: 0.3839988}
+  - {x: -0.1936216, y: 0.4725273}
+  - {x: -0.16587782, y: 0.47210208}
+  - {x: 0.017136961, y: 0.48700163}
+  - {x: 0.050277375, y: 0.46171308}
+  - {x: 0.10054939, y: 0.3909679}
+  - {x: 0.084214605, y: 0.36891437}
+  - {x: 0.14180288, y: 0.30878007}
+  - {x: 0.13727549, y: 0.27354616}
+  - {x: 0.100078546, y: 0.25191778}
+  - {x: 0.074254364, y: 0.17799309}
+  - {x: 0.16175956, y: 0.14959891}
+  - {x: 0.21232133, y: 0.0045963377}
+  - {x: 0.23861635, y: -0.02413059}
+  - {x: 0.18483108, y: -0.043060042}
+  - {x: 0.13166156, y: -0.07881157}
+  - {x: 0.05299382, y: -0.12432359}
+  - {x: 0.0322403, y: -0.1491685}
+  - {x: 0.096601516, y: -0.1991356}
+  - {x: 0.11836915, y: -0.29951346}
+  - {x: 0.09642042, y: -0.3769135}
+  - {x: 0.09638421, y: -0.40369943}
+  - {x: 0.122172154, y: -0.46791902}
+  - {x: 0.084757894, y: -0.5130429}
+  - {x: -0.07536647, y: -0.52738786}
+  - {x: -0.11017293, y: -0.4453294}
+  - {x: -0.087536044, y: -0.3273161}
+  - {x: -0.17145555, y: -0.39599085}
+  - {x: -0.13534518, y: -0.5040034}
+  - {x: -0.36153305, y: -0.49969617}
+  - {x: -0.33817175, y: -0.38066608}
+  - {x: -0.2967372, y: -0.3309578}
+  - {x: -0.34766114, y: -0.20259246}
+  - {x: -0.4202803, y: -0.1426615}
+  - {x: -0.44150466, y: 0.006574318}
+  - {x: -0.44544756, y: 0.022922397}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!4 &8963190550654606501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1149812337477005665, guid: 2562a16b1277a8645a2be57669a19797, type: 3}

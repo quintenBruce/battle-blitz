@@ -4,6 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System.Linq;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -14,11 +15,16 @@ public class PlayerController : NetworkBehaviour
     public GameObject[] spawnPoints;
     private static int lastSpawnIndex = -1;
     public Image healthBar;
-    private float healthAmount = 100f;
+    private NetworkVariable<float> healthAmount = new NetworkVariable<float>(default,
+        NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
 
     public void Start()
     {
+        //ulong id = NetworkManager.Singleton.LocalClientId;
+        //var x = NetworkManager.Singleton.ConnectedClientsIds;
+        //GetComponent<NetworkObject>().ChangeOwnership(x.Last());
+        //ulong id2 = NetworkManager.Singleton.LocalClientId;
         animator = GetComponent<Animator>();
         //get canvas and search for healthbar Image
         Canvas c = gameObject.GetComponentInChildren<Canvas>();
@@ -27,10 +33,20 @@ public class PlayerController : NetworkBehaviour
             if (im.CompareTag("HealthBar")) healthBar = im;
 
         }
+        
+            healthAmount.Value = 100f;
+            healthAmount.OnValueChanged += OnHealthChanged;
+    }
+    private void OnHealthChanged(float previous, float current)
+    {
+        healthBar.fillAmount = current / 100f;
     }
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+        GetComponent<NetworkObject>().ChangeOwnership(NetworkManager.Singleton.ConnectedClientsIds.Last());
+
+
 
         // Check if spawnPoints array is not empty
         if (spawnPoints == null || spawnPoints.Length == 0)
@@ -49,6 +65,8 @@ public class PlayerController : NetworkBehaviour
         // Move the spawned object to the chosen spawn point position
         transform.position = chosenSpawnPoint.position;
         transform.rotation = chosenSpawnPoint.rotation;
+
+        
     }
 
 
@@ -78,18 +96,24 @@ public class PlayerController : NetworkBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Bullet(Clone)" || collision.gameObject.name.Equals("Bullet(Clone)"))
-        {
-            takeDamage(10);
-        }
-    }
+        //string coll = collision.otherCollider.GetType().ToString();
+        //if (coll.Contains("EdgeCollider"))
+        //{ //struck the body
 
+        //}
+            if (collision.gameObject.name == "Bullet(Clone)" || collision.gameObject.name.Equals("Bullet(Clone)"))
+            {
+                takeDamage(10);
+            }
+    }
     private void takeDamage(int damage)
     {
-        healthAmount -= damage;
-        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
-        healthBar.fillAmount = healthAmount / 100f;
-    }
+        float temp = healthAmount.Value;
+        temp -= damage;
+        temp = Mathf.Clamp(temp, 0, 100);
+        healthAmount.Value = temp;
+        healthBar.fillAmount = temp / 100f;
+   }
 
 
 }
